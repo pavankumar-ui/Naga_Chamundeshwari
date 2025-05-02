@@ -123,7 +123,7 @@ const Contact = () => {
               <h3 className="text-xl font-cinzel font-semibold text-maroon mb-4 text-center">Temple Location</h3>
               <div className="w-full h-80 rounded-md overflow-hidden">
                 <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3898.5544585677!2d76.6481093!3d12.3051511!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baf70381169d999%3A0x772e622e9f07fe!2sMysore%2C%20Karnataka%2C%20India!5e0!3m2!1sen!2sus!4v1635835741628!5m2!1sen!2sus" 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.018713996873!2d77.5702943!3d12.9053095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15416a33831d%3A0xaca23e80f7eca0db!2sJ.%20P.%20Nagar%207th%20Phase%2C%20J.%20P.%20Nagar%2C%20Bengaluru%2C%20Karnataka%20560078!5e0!3m2!1sen!2sin!4v1683190543612!5m2!1sen!2sin" 
                   width="100%" 
                   height="100%" 
                   style={{ border: 0 }} 
@@ -151,10 +151,10 @@ const Contact = () => {
             <div className="bg-white p-6 rounded-lg shadow-md">
               <h3 className="text-xl font-cinzel font-semibold text-maroon mb-3">Transportation</h3>
               <ul className="space-y-2 text-dark">
-                <li>• 5 km from Mysore Railway Station</li>
-                <li>• 3 km from Mysore Central Bus Stand</li>
-                <li>• Auto-rickshaws and taxis available</li>
-                <li>• City bus routes: 101, 201, 305</li>
+                <li>• 2 km from JP Nagar Metro Station</li>
+                <li>• 5 km from Banashankari Bus Terminal</li>
+                <li>• Auto-rickshaws, Ola, Uber and taxis available</li>
+                <li>• City bus routes: 15A, 27B, 42C</li>
                 <li>• Limited parking available on premises</li>
               </ul>
             </div>

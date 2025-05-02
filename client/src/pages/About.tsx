@@ -6,17 +6,17 @@ const About = () => {
   return (
     <>
       <Helmet>
-        <title>About - Naga Chamundeshwari Temple</title>
-        <meta name="description" content="Learn about the rich history and spiritual significance of the Naga Chamundeshwari Temple." />
+        <title>About - Naga Chamundeshwari Devasthana</title>
+        <meta name="description" content="Learn about the rich history and spiritual significance of the Naga Chamundeshwari Devasthana." />
       </Helmet>
       
       <section className="pt-8 pb-16 temple-decor">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h1 className="section-title">About The Temple</h1>
+            <h1 className="section-title">About The Devasthana</h1>
             <div className="section-divider"></div>
             <p className="text-dark max-w-3xl mx-auto">
-              Discover the rich history and spiritual significance of the Naga Chamundeshwari Temple, 
+              Discover the rich history and spiritual significance of the Naga Chamundeshwari Devasthana, 
               a sacred place of worship for generations.
             </p>
           </div>
@@ -65,7 +65,7 @@ const About = () => {
           
           <div>
             <div className="text-center mb-8">
-              <h2 className="text-2xl font-cinzel font-semibold text-maroon">Temple Architecture</h2>
+              <h2 className="text-2xl font-cinzel font-semibold text-maroon">Devasthana Architecture</h2>
               <div className="w-16 h-1 bg-gold mx-auto mt-2"></div>
             </div>
             
@@ -73,13 +73,13 @@ const About = () => {
               <div>
                 <img 
                   src="https://images.unsplash.com/photo-1531061484401-e9bc0cddb228?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80" 
-                  alt="Temple Architecture" 
+                  alt="Devasthana Architecture" 
                   className="w-full h-auto rounded-lg shadow-xl"
                 />
               </div>
               <div>
                 <p className="text-dark mb-4">
-                  The Naga Chamundeshwari Temple stands as a testament to ancient architectural brilliance. Built in the 
+                  The Naga Chamundeshwari Devasthana stands as a testament to ancient architectural brilliance. Built in the 
                   traditional Dravidian style with influences of Hoysala architecture, the temple features intricately 
                   carved pillars, majestic gopurams (temple towers), and detailed stone sculptures depicting various 
                   deities and mythological stories.
@@ -103,7 +103,7 @@ const About = () => {
       <section className="py-16 bg-cream">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="section-title">Temple Legends</h2>
+            <h2 className="section-title">Devasthana Legends</h2>
             <div className="section-divider"></div>
           </div>
           

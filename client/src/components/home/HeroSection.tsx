@@ -7,7 +7,7 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 py-20">
         <div className="max-w-3xl mx-auto">
           <h1 className="text-4xl md:text-6xl font-bold text-white font-cinzel mb-4">
-            Welcome to {templeInfo.name}
+            Welcome to Naga Chamundeshwari Devasthana
           </h1>
           <p className="text-xl text-light mb-8">{templeInfo.tagline}</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
