@@ -40,10 +40,8 @@ const Header = () => {
                   className="w-full h-full object-contain rounded-full"
                 />
               </div>
-              <div>
-                <p className="text-dark text-sm">Sri</p>
-                <h1 className="text-maroon font-cinzel text-2xl font-bold">Naga Chamundeshwari</h1>
-                <p className="text-dark text-sm">Devasthana</p>
+              <div className="w-10 h-10 flex items-center justify-center bg-maroon rounded-full text-white font-bold">
+                <span>NC</span>
               </div>
             </div>
           </Link>
