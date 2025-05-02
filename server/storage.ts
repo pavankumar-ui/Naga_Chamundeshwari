@@ -8,6 +8,7 @@ import {
   contacts, type Contact, type InsertContact
 } from "@shared/schema";
 
+// Define the storage interface
 export interface IStorage {
   // Users
   getUser(id: number): Promise<User | undefined>;
@@ -46,6 +47,7 @@ export interface IStorage {
   markContactAsRead(id: number): Promise<Contact>;
 }
 
+// In-memory storage implementation
 export class MemStorage implements IStorage {
   private users: Map<number, User>;
   private services: Map<number, Service>;
@@ -299,7 +301,12 @@ export class MemStorage implements IStorage {
       id,
       createdAt: new Date(),
       paymentStatus: 'pending',
-      transactionId: null
+      // Need to make sure required fields have values
+      transactionId: null,
+      message: insertDonation.message ?? null,
+      purpose: insertDonation.purpose ?? null,
+      eventId: insertDonation.eventId ?? null,
+      serviceId: insertDonation.serviceId ?? null
     };
     this.donations.set(id, donation);
     return donation;
@@ -322,7 +329,7 @@ export class MemStorage implements IStorage {
     const updatedDonation: Donation = {
       ...donation,
       paymentStatus: status,
-      transactionId: transactionId || donation.transactionId
+      transactionId: transactionId ?? donation.transactionId
     };
     
     this.donations.set(id, updatedDonation);
@@ -366,4 +373,8 @@ export class MemStorage implements IStorage {
   }
 }
 
-export const storage = new MemStorage();
+// Import DatabaseStorage from separate file to avoid circular dependency
+import { DatabaseStorage } from "./DatabaseStorage";
+
+// Use database storage as default
+export const storage = new DatabaseStorage();

@@ -12,4 +12,16 @@ if (!process.env.DATABASE_URL) {
 }
 
 export const pool = new Pool({ connectionString: process.env.DATABASE_URL });
-export const db = drizzle({ client: pool, schema });
+export const db = drizzle(pool, { schema });
+
+// Helper function to print error details for debugging
+export function logQueryError(error: any, queryType: string): void {
+  console.error(`Error in ${queryType}:`, {
+    message: error.message,
+    code: error.code,
+    detail: error.detail,
+    where: error.where,
+    hint: error.hint,
+    position: error.position,
+  });
+}
