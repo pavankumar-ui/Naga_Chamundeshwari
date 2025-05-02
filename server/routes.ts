@@ -1,7 +1,11 @@
 import express, { type Express, type Request, type Response } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertInquirySchema } from "@shared/schema";
+import { 
+  insertInquirySchema, 
+  insertDonationSchema, 
+  insertContactSchema
+} from "@shared/schema";
 import { fromZodError } from "zod-validation-error";
 
 export async function registerRoutes(app: Express): Promise<Server> {
@@ -116,6 +120,83 @@ export async function registerRoutes(app: Express): Promise<Server> {
     } catch (error) {
       console.error("Error creating inquiry:", error);
       res.status(500).json({ message: "Failed to submit inquiry" });
+    }
+  });
+  
+  // Create contact message
+  apiRouter.post("/contacts", async (req: Request, res: Response) => {
+    try {
+      const contactData = insertContactSchema.safeParse(req.body);
+      
+      if (!contactData.success) {
+        const validationError = fromZodError(contactData.error);
+        return res.status(400).json({ message: validationError.message });
+      }
+      
+      const contact = await storage.createContact(contactData.data);
+      res.status(201).json(contact);
+    } catch (error) {
+      console.error("Error creating contact:", error);
+      res.status(500).json({ message: "Failed to submit contact form" });
+    }
+  });
+  
+  // Create donation
+  apiRouter.post("/donations", async (req: Request, res: Response) => {
+    try {
+      const donationData = insertDonationSchema.safeParse(req.body);
+      
+      if (!donationData.success) {
+        const validationError = fromZodError(donationData.error);
+        return res.status(400).json({ message: validationError.message });
+      }
+      
+      const donation = await storage.createDonation(donationData.data);
+      res.status(201).json(donation);
+    } catch (error) {
+      console.error("Error creating donation:", error);
+      res.status(500).json({ message: "Failed to process donation" });
+    }
+  });
+  
+  // Get donation by ID
+  apiRouter.get("/donations/:id", async (req: Request, res: Response) => {
+    try {
+      const id = parseInt(req.params.id);
+      if (isNaN(id)) {
+        return res.status(400).json({ message: "Invalid donation ID" });
+      }
+      
+      const donation = await storage.getDonation(id);
+      if (!donation) {
+        return res.status(404).json({ message: "Donation not found" });
+      }
+      
+      res.json(donation);
+    } catch (error) {
+      console.error("Error fetching donation:", error);
+      res.status(500).json({ message: "Failed to fetch donation" });
+    }
+  });
+  
+  // Update donation status
+  apiRouter.patch("/donations/:id/status", async (req: Request, res: Response) => {
+    try {
+      const id = parseInt(req.params.id);
+      if (isNaN(id)) {
+        return res.status(400).json({ message: "Invalid donation ID" });
+      }
+      
+      const { status, transactionId } = req.body;
+      if (!status) {
+        return res.status(400).json({ message: "Status is required" });
+      }
+      
+      const donation = await storage.updateDonationStatus(id, status, transactionId);
+      res.json(donation);
+    } catch (error) {
+      console.error("Error updating donation status:", error);
+      res.status(500).json({ message: "Failed to update donation status" });
     }
   });
   

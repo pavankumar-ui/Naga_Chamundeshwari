@@ -1,4 +1,4 @@
-import { pgTable, text, serial, integer, boolean, timestamp } from "drizzle-orm/pg-core";
+import { pgTable, text, serial, integer, boolean, timestamp, varchar, numeric, pgEnum } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
@@ -40,6 +40,40 @@ export const inquiries = pgTable("inquiries", {
   subject: text("subject").notNull(),
   message: text("message").notNull(),
   createdAt: timestamp("created_at").defaultNow().notNull(),
+  isResolved: boolean("is_resolved").default(false),
+});
+
+// Payment types enum
+export const donationTypeEnum = pgEnum('donation_type', ['general', 'pooja', 'event', 'ehundi', 'other']);
+
+// Donations/payments table
+export const donations = pgTable("donations", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull(),
+  email: text("email").notNull(),
+  phone: text("phone").notNull(),
+  amount: numeric("amount", { precision: 10, scale: 2 }).notNull(),
+  purpose: text("purpose"),
+  donationType: donationTypeEnum("donation_type").notNull(),
+  message: text("message"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  transactionId: text("transaction_id"),
+  paymentStatus: text("payment_status").default("pending").notNull(),
+  gotram: text("gotram"),
+  nakshatra: text("nakshatra"),
+  eventId: integer("event_id").references(() => events.id),
+  serviceId: integer("service_id").references(() => services.id),
+});
+
+// Contacts table (separate from inquiries for better organization)
+export const contacts = pgTable("contacts", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull(),
+  email: text("email").notNull(),
+  phone: text("phone").notNull(),
+  message: text("message").notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  isRead: boolean("is_read").default(false),
 });
 
 // Insert Schemas
@@ -77,6 +111,27 @@ export const insertInquirySchema = createInsertSchema(inquiries).pick({
   message: true,
 });
 
+export const insertDonationSchema = createInsertSchema(donations).pick({
+  name: true,
+  email: true,
+  phone: true,
+  amount: true,
+  purpose: true,
+  donationType: true,
+  message: true,
+  gotram: true,
+  nakshatra: true,
+  eventId: true,
+  serviceId: true,
+});
+
+export const insertContactSchema = createInsertSchema(contacts).pick({
+  name: true,
+  email: true,
+  phone: true,
+  message: true,
+});
+
 // Types
 export type InsertUser = z.infer<typeof insertUserSchema>;
 export type User = typeof users.$inferSelect;
@@ -92,3 +147,9 @@ export type Gallery = typeof gallery.$inferSelect;
 
 export type InsertInquiry = z.infer<typeof insertInquirySchema>;
 export type Inquiry = typeof inquiries.$inferSelect;
+
+export type InsertDonation = z.infer<typeof insertDonationSchema>;
+export type Donation = typeof donations.$inferSelect;
+
+export type InsertContact = z.infer<typeof insertContactSchema>;
+export type Contact = typeof contacts.$inferSelect;

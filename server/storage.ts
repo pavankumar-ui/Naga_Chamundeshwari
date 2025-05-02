@@ -3,7 +3,9 @@ import {
   services, type Service, type InsertService,
   events, type Event, type InsertEvent,
   gallery, type Gallery, type InsertGallery,
-  inquiries, type Inquiry, type InsertInquiry
+  inquiries, type Inquiry, type InsertInquiry,
+  donations, type Donation, type InsertDonation,
+  contacts, type Contact, type InsertContact
 } from "@shared/schema";
 
 export interface IStorage {
@@ -30,6 +32,18 @@ export interface IStorage {
   // Inquiries
   createInquiry(inquiry: InsertInquiry): Promise<Inquiry>;
   getAllInquiries(): Promise<Inquiry[]>;
+  
+  // Donations
+  createDonation(donation: InsertDonation): Promise<Donation>;
+  getAllDonations(): Promise<Donation[]>;
+  getDonation(id: number): Promise<Donation | undefined>;
+  updateDonationStatus(id: number, status: string, transactionId?: string): Promise<Donation>;
+  
+  // Contacts
+  createContact(contact: InsertContact): Promise<Contact>;
+  getAllContacts(): Promise<Contact[]>;
+  getContact(id: number): Promise<Contact | undefined>;
+  markContactAsRead(id: number): Promise<Contact>;
 }
 
 export class MemStorage implements IStorage {
@@ -38,12 +52,16 @@ export class MemStorage implements IStorage {
   private events: Map<number, Event>;
   private galleryItems: Map<number, Gallery>;
   private inquiries: Map<number, Inquiry>;
+  private donations: Map<number, Donation>;
+  private contacts: Map<number, Contact>;
   
   private userCurrentId: number;
   private serviceCurrentId: number;
   private eventCurrentId: number;
   private galleryCurrentId: number;
   private inquiryCurrentId: number;
+  private donationCurrentId: number;
+  private contactCurrentId: number;
 
   constructor() {
     this.users = new Map();
@@ -51,12 +69,16 @@ export class MemStorage implements IStorage {
     this.events = new Map();
     this.galleryItems = new Map();
     this.inquiries = new Map();
+    this.donations = new Map();
+    this.contacts = new Map();
     
     this.userCurrentId = 1;
     this.serviceCurrentId = 1;
     this.eventCurrentId = 1;
     this.galleryCurrentId = 1;
     this.inquiryCurrentId = 1;
+    this.donationCurrentId = 1;
+    this.contactCurrentId = 1;
     
     // Initialize with default data
     this.initDefaultData();
@@ -90,10 +112,10 @@ export class MemStorage implements IStorage {
         imageUrl: "https://images.unsplash.com/photo-1609177988552-0b04ad4423e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80"
       },
       {
-        name: "Marriage Ceremony",
-        description: "Traditional Hindu wedding ceremony performed at the temple premises with all rituals.",
-        price: "₹11,000 onwards",
-        imageUrl: "https://images.unsplash.com/photo-1593100126453-19c0f1707bc7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80"
+        name: "E-Hundi Donation",
+        description: "Make offerings to the temple electronically, similar to the traditional hundi donation system but through online means.",
+        price: "Any amount",
+        imageUrl: "https://images.unsplash.com/photo-1642982166809-50eed2787904?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80"
       },
       {
         name: "Shraddha Ceremony",
@@ -258,7 +280,8 @@ export class MemStorage implements IStorage {
     const inquiry: Inquiry = { 
       ...insertInquiry, 
       id, 
-      createdAt: new Date() 
+      createdAt: new Date(),
+      isResolved: false
     };
     this.inquiries.set(id, inquiry);
     return inquiry;
@@ -266,6 +289,80 @@ export class MemStorage implements IStorage {
   
   async getAllInquiries(): Promise<Inquiry[]> {
     return Array.from(this.inquiries.values());
+  }
+  
+  // Donation Methods
+  async createDonation(insertDonation: InsertDonation): Promise<Donation> {
+    const id = this.donationCurrentId++;
+    const donation: Donation = {
+      ...insertDonation,
+      id,
+      createdAt: new Date(),
+      paymentStatus: 'pending',
+      transactionId: null
+    };
+    this.donations.set(id, donation);
+    return donation;
+  }
+  
+  async getAllDonations(): Promise<Donation[]> {
+    return Array.from(this.donations.values());
+  }
+  
+  async getDonation(id: number): Promise<Donation | undefined> {
+    return this.donations.get(id);
+  }
+  
+  async updateDonationStatus(id: number, status: string, transactionId?: string): Promise<Donation> {
+    const donation = this.donations.get(id);
+    if (!donation) {
+      throw new Error(`Donation with ID ${id} not found`);
+    }
+    
+    const updatedDonation: Donation = {
+      ...donation,
+      paymentStatus: status,
+      transactionId: transactionId || donation.transactionId
+    };
+    
+    this.donations.set(id, updatedDonation);
+    return updatedDonation;
+  }
+  
+  // Contact Methods
+  async createContact(insertContact: InsertContact): Promise<Contact> {
+    const id = this.contactCurrentId++;
+    const contact: Contact = {
+      ...insertContact,
+      id,
+      createdAt: new Date(),
+      isRead: false
+    };
+    this.contacts.set(id, contact);
+    return contact;
+  }
+  
+  async getAllContacts(): Promise<Contact[]> {
+    return Array.from(this.contacts.values());
+  }
+  
+  async getContact(id: number): Promise<Contact | undefined> {
+    return this.contacts.get(id);
+  }
+  
+  async markContactAsRead(id: number): Promise<Contact> {
+    const contact = this.contacts.get(id);
+    if (!contact) {
+      throw new Error(`Contact with ID ${id} not found`);
+    }
+    
+    const updatedContact: Contact = {
+      ...contact,
+      isRead: true
+    };
+    
+    this.contacts.set(id, updatedContact);
+    return updatedContact;
   }
 }
 
