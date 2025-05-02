@@ -1,8 +1,22 @@
 import { donationOptions } from "@/lib/data";
 import DonationOptions from "@/components/donation/DonationOptions";
 import { Helmet } from "react-helmet";
+import { useState, useEffect } from "react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { DonationForm } from "@/components/donation/DonationForm";
 
 const Donation = () => {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  
+  // Check if user came with intent to donate immediately
+  useEffect(() => {
+    // Check URL parameters
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('action') === 'donate') {
+      setIsDialogOpen(true);
+    }
+  }, []);
+  
   return (
     <>
       <Helmet>
@@ -17,12 +31,39 @@ const Donation = () => {
             <div className="w-24 h-1 bg-gold mx-auto mb-6"></div>
             <p className="mb-8">{donationOptions.description}</p>
             
+            {/* Quick Donate Button */}
+            <button 
+              onClick={() => setIsDialogOpen(true)}
+              className="mb-8 bg-maroon hover:bg-maroon/90 text-white px-6 py-3 rounded-md font-medium text-lg transition"
+            >
+              Quick Donate Now
+            </button>
+            
             <DonationOptions />
             
             <p className="mt-6 text-sm">{donationOptions.taxExemption}</p>
           </div>
         </div>
       </section>
+      
+      {/* Donation Dialog */}
+      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+        <DialogContent className="sm:max-w-[550px] max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="text-xl font-cinzel text-maroon">
+              Make a Donation
+            </DialogTitle>
+            <DialogDescription>
+              Fill out the form below to make your offering to Naga Chamundeshwari Temple.
+            </DialogDescription>
+          </DialogHeader>
+          
+          <DonationForm 
+            donationType="general"
+            defaultPurpose="Temple Donation"
+          />
+        </DialogContent>
+      </Dialog>
       
       <section className="py-16 temple-decor">
         <div className="container mx-auto px-4">
