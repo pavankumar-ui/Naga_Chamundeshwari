@@ -108,31 +108,31 @@ export class MemStorage implements IStorage {
     // Add default events
     const defaultEvents: InsertEvent[] = [
       {
-        name: "Dasara Fest",
-        description: "A grand 10-day celebration honoring the victory of Goddess Chamundeshwari over the demon Mahishasura with special rituals, cultural programs, and processions.",
-        date: "15 Oct 2023",
+        name: "Dasara Festival",
+        description: "A grand 10-day celebration honoring the victory of Goddess Chamundeshwari over the demon Mahishasura with special rituals, cultural programs, and processions. Devotees make special donations during this period to receive divine blessings and prosperity.",
+        date: "Oct 3 - Oct 12, 2024",
         time: "6:00 AM - 9:00 PM",
         imageUrl: "https://images.unsplash.com/photo-1589722707707-87642d3726e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80"
       },
       {
         name: "Maha Shivarathri",
-        description: "A sacred night dedicated to Lord Shiva with continuous prayers, special abhishekams, and spiritual activities throughout the night.",
-        date: "8 Mar 2024",
+        description: "A sacred 3-day celebration dedicated to Lord Shiva with continuous prayers, special abhishekams, and spiritual activities throughout the night. This is one of our most significant festivals where devotee donations support the grand arrangements and receive spiritual merit.",
+        date: "Mar 7 - Mar 9, 2025",
         time: "6:00 PM - 6:00 AM",
         imageUrl: "https://images.unsplash.com/photo-1626034926348-f1b90ea1ad36?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80"
       },
       {
-        name: "Karaga Event",
-        description: "Traditional cultural and religious festival involving processions, rituals and community gatherings to honor the divine feminine energy.",
-        date: "2 Apr 2024",
-        time: "7:00 AM - 10:00 PM",
+        name: "Naga Chamundeshwari Birthday Celebration",
+        description: "Special celebration of our temple deity's birthday with grand processions, cultural events, and the auspicious Prathangira Homam ritual in the evening. This is a highly sacred occasion where devotee offerings and donations are especially meaningful.",
+        date: "Aug 15, 2024",
+        time: "Morning ceremonies from 6:00 AM, Prathangira Homam: 7:45 PM - 8:30 PM",
         imageUrl: "https://images.unsplash.com/photo-1621682372775-533449e550ed?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80"
       },
       {
-        name: "Prathyangira Homam Rituals Pooja",
-        description: "Special fire ritual dedicated to Goddess Prathyangira to remove negative energies and obstacles, providing protection and prosperity to devotees.",
-        date: "20 May 2024",
-        time: "9:30 AM - 1:30 PM",
+        name: "Prathyangira Homam Monthly Ritual",
+        description: "Monthly special fire ritual dedicated to Goddess Prathyangira to remove negative energies and obstacles, providing protection and prosperity to devotees. Conducted every month on the full moon day.",
+        date: "Monthly (Pournami)",
+        time: "7:45 PM - 8:30 PM",
         imageUrl: "https://images.unsplash.com/photo-1626165269981-6a9d2b07e6ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80"
       }
     ];
