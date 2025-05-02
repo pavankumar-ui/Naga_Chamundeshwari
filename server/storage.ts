@@ -306,7 +306,9 @@ export class MemStorage implements IStorage {
       message: insertDonation.message ?? null,
       purpose: insertDonation.purpose ?? null,
       eventId: insertDonation.eventId ?? null,
-      serviceId: insertDonation.serviceId ?? null
+      serviceId: insertDonation.serviceId ?? null,
+      gotram: insertDonation.gotram ?? null,
+      nakshatra: insertDonation.nakshatra ?? null
     };
     this.donations.set(id, donation);
     return donation;

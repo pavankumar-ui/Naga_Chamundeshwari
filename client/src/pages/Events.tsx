@@ -100,11 +100,12 @@ const Events = () => {
                     </div>
                   </div>
                   
-                  <Link href="/donation">
-                    <Button className="w-full bg-maroon hover:bg-maroon/80">
-                      Make an Offering
-                    </Button>
-                  </Link>
+                  <Button 
+                    className="w-full bg-maroon hover:bg-maroon/80"
+                    onClick={() => handleDonationClick(event.title)}
+                  >
+                    Make an Offering
+                  </Button>
                 </div>
               </div>
             ))}
@@ -149,9 +150,9 @@ const Events = () => {
                 </div>
               ))
             ) : (
-              events?.map((event) => (
+              Array.isArray(events) ? events.map((event) => (
                 <EventCard key={event.id} event={event} />
-              ))
+              )) : null
             )}
           </div>
         </div>
@@ -296,14 +297,33 @@ const Events = () => {
             <p className="text-gray-700 mb-6">
               During these important celebrations, devotees traditionally offer donations for the special arrangements and to receive divine blessings. Your contributions help maintain the grandeur of these sacred events and support the temple's activities.
             </p>
-            <Link href="/donation">
-              <Button className="bg-maroon hover:bg-maroon/80 text-lg px-8 py-6">
-                Make a Festival Donation
-              </Button>
-            </Link>
+            <Button 
+              className="bg-maroon hover:bg-maroon/80 text-lg px-8 py-6"
+              onClick={() => handleDonationClick("Festival Donation")}
+            >
+              Make a Festival Donation
+            </Button>
           </div>
         </div>
       </section>
+      {/* Donation Dialog */}
+      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+        <DialogContent className="sm:max-w-[550px] max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="text-xl font-cinzel text-maroon">
+              {selectedEvent} Offering
+            </DialogTitle>
+            <DialogDescription>
+              Fill out the form below to make your offering for {selectedEvent}.
+            </DialogDescription>
+          </DialogHeader>
+          
+          <DonationForm 
+            donationType="event"
+            defaultPurpose={selectedEvent || ""}
+          />
+        </DialogContent>
+      </Dialog>
     </>
   );
 };

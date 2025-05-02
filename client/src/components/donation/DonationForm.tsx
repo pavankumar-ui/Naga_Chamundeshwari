@@ -24,7 +24,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Checkout } from "./index";
+import Checkout from "./Checkout";
 import { Event } from "@shared/schema";
 
 // Extend the donation schema for client-side validation
@@ -66,7 +66,7 @@ export function DonationForm({
       phone: "",
       amount: "",
       donationType,
-      purpose: eventName || defaultPurpose,
+      purpose: eventName || defaultPurpose || "",
       message: "",
       gotram: "",
       nakshatra: "",
