@@ -33,15 +33,12 @@ const Header = () => {
         <div className="flex justify-between items-center">
           <Link href="/">
             <div className="flex items-center cursor-pointer">
-              <div className="w-16 h-16 mr-3">
+              <div className="w-16 h-16">
                 <img 
                   src="https://images.unsplash.com/photo-1621507492022-88fcab37a467?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
                   alt="Temple Logo" 
                   className="w-full h-full object-contain rounded-full"
                 />
-              </div>
-              <div className="w-10 h-10 flex items-center justify-center bg-maroon rounded-full text-white font-bold">
-                <span>NC</span>
               </div>
             </div>
           </Link>
