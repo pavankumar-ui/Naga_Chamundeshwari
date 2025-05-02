@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 36 40% 95.9%;
+  --foreground: 20 14.3% 4.1%;
+
+  --muted: 60 4.8% 95.9%;
+  --muted-foreground: 25 5.3% 44.7%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 20 14.3% 4.1%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 20 14.3% 4.1%;
+
+  --border: 20 5.9% 90%;
+  --input: 20 5.9% 90%;
+
+  --primary: 0 69% 27%;
+  --primary-foreground: 211 100% 99%;
+
+  --secondary: 60 4.8% 95.9%;
+  --secondary-foreground: 24 9.8% 10%;
+
+  --accent: 42 80% 54%;
+  --accent-foreground: 24 9.8% 10%;
+
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 60 9.1% 97.8%;
+
+  --ring: 20 14.3% 4.1%;
+  --radius: 0.5rem;
+
+  /* Chart colors */
+  --chart-1: 0 69% 27%;
+  --chart-2: 42 80% 54%;
+  --chart-3: 44 100% 50%;
+  --chart-4: 19 100% 50%;
+  --chart-5: 210 100% 50%;
+  
+  /* Custom temple colors */
+  --maroon: 0 69% 27%;
+  --gold: 42 80% 54%;
+  --cream: 48 100% 93%;
+  --light: 48 100% 98%;
+  --dark: 24 15% 13%;
+}
+
+.dark {
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 98%;
+
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+
+  --primary: 0 59% 40%;
+  --primary-foreground: 211 100% 99%;
+
+  --secondary: 240 3.7% 15.9%;
+  --secondary-foreground: 0 0% 98%;
+
+  --accent: 42 80% 54%;
+  --accent-foreground: 0 0% 98%;
+
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+
+  --ring: 240 4.9% 83.9%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-poppins antialiased bg-light text-foreground;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-cinzel;
+  }
+
+  .temple-decor {
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 0L20 10L10 20L0 10L10 0Z' fill='%23D4AF37' fill-opacity='0.2'/%3E%3C/svg%3E");
+  }
+
+  .hero-section {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1602302522970-c24fd1d0798c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .donation-section {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1561228888-91e9eefdceb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80');
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+@layer utilities {
+  .text-maroon {
+    @apply text-[#8B0000];
+  }
+  
+  .bg-maroon {
+    @apply bg-[#8B0000];
+  }
+  
+  .text-gold {
+    @apply text-[#D4AF37];
+  }
+  
+  .bg-gold {
+    @apply bg-[#D4AF37];
+  }
+  
+  .text-cream {
+    @apply text-[#F5F5DC];
+  }
+  
+  .bg-cream {
+    @apply bg-[#F5F5DC];
+  }
+  
+  .text-light {
+    @apply text-[#FFF9E8];
+  }
+  
+  .bg-light {
+    @apply bg-[#FFF9E8];
+  }
+  
+  .text-dark {
+    @apply text-[#251E17];
+  }
+  
+  .bg-dark {
+    @apply bg-[#251E17];
+  }
+}
+
+@layer components {
+  .section-title {
+    @apply text-3xl md:text-4xl font-cinzel font-bold text-maroon mb-3;
+  }
+  
+  .section-divider {
+    @apply w-24 h-1 bg-gold mx-auto mb-6;
+  }
+  
+  .primary-btn {
+    @apply bg-maroon text-white px-6 py-3 rounded-md hover:bg-[#770000] transition duration-300;
+  }
+  
+  .secondary-btn {
+    @apply bg-gold text-dark px-6 py-3 rounded-md hover:bg-[#c09c30] transition duration-300;
+  }
+}
+
+.font-cinzel {
+  font-family: 'Cinzel', serif;
+}
+
+.font-poppins {
+  font-family: 'Poppins', sans-serif;
+}
