@@ -136,9 +136,9 @@ const Footer = () => {
               <li className="flex items-start">
                 <MapPin className="text-gold mt-1 mr-2" size={18} />
                 <span className="text-gray-400">
-                  Naga Chamundeshwari Temple, <br />
-                  Temple Street, Mysore, <br />
-                  Karnataka - 570001, India
+                  Naga Chamundeshwari Devasthana, <br />
+                  Puttenahalli, J.P Nagar 7th Phase, <br />
+                  Bangalore - 560076, India
                 </span>
               </li>
               <li className="flex items-start">
@@ -160,7 +160,7 @@ const Footer = () => {
         <div className="mt-12 pt-8 border-t border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-500 mb-4 md:mb-0">
-              © {new Date().getFullYear()} Naga Chamundeshwari Temple. All rights reserved.
+              © {new Date().getFullYear()} Naga Chamundeshwari Devasthana. All rights reserved.
             </p>
             <div className="flex space-x-6">
               <a href="#" className="text-gray-500 hover:text-white transition duration-300">Privacy Policy</a>
