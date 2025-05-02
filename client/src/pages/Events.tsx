@@ -3,8 +3,17 @@ import EventCard from "@/components/events/EventCard";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Helmet } from "react-helmet";
 import { Button } from "@/components/ui/button";
-import { Link } from "wouter";
-import { CalendarIcon, Gift } from "lucide-react";
+import { Link, useLocation } from "wouter";
+import { CalendarIcon, Gift, ChevronDown, ChevronUp } from "lucide-react";
+import { useState } from "react";
+import { DonationForm } from "@/components/donation";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 
 const Events = () => {
   const { data: events, isLoading } = useQuery({
@@ -14,9 +23,14 @@ const Events = () => {
   // Create skeleton array for loading state
   const skeletonEvents = Array(4).fill(0);
   
+  // State for managing donation dialog
+  const [selectedEvent, setSelectedEvent] = useState<string | null>(null);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  
   // Our highlight events - the 3 major temple celebrations
   const highlightEvents = [
     {
+      id: 1,
       title: "Dasara Festival",
       duration: "10 Days",
       time: "Daily celebrations with special evening rituals",
@@ -24,6 +38,7 @@ const Events = () => {
       donationInfo: "Devotees traditionally make special offerings during this auspicious period for prosperity and divine blessings."
     },
     {
+      id: 2,
       title: "Maha Shivarathri",
       duration: "3 Days",
       time: "Round-the-clock ceremonies with night vigil",
@@ -31,6 +46,7 @@ const Events = () => {
       donationInfo: "Offerings made during this festival carry special spiritual significance and support the elaborate arrangements for this major event."
     },
     {
+      id: 3,
       title: "Naga Chamundeshwari Birthday",
       duration: "Special Day",
       time: "Prathangira Homam: 7:45 PM - 8:30 PM",
@@ -38,6 +54,12 @@ const Events = () => {
       donationInfo: "This is one of the most auspicious times for devotees to make offerings, with donations supporting the special ceremonies and receiving unique blessings."
     }
   ];
+  
+  // Handler for opening donation dialog
+  const handleDonationClick = (eventTitle: string) => {
+    setSelectedEvent(eventTitle);
+    setIsDialogOpen(true);
+  };
   
   return (
     <>

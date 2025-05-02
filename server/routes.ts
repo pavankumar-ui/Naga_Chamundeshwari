@@ -1,12 +1,20 @@
 import express, { type Express, type Request, type Response } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
+import Stripe from "stripe";
 import { 
   insertInquirySchema, 
   insertDonationSchema, 
   insertContactSchema
 } from "@shared/schema";
 import { fromZodError } from "zod-validation-error";
+
+// Initialize Stripe
+if (!process.env.STRIPE_SECRET_KEY) {
+  throw new Error("STRIPE_SECRET_KEY is required for donation processing");
+}
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // API Routes
@@ -200,6 +208,81 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
   
+  // Create a payment intent for Stripe
+  apiRouter.post("/create-payment-intent", async (req: Request, res: Response) => {
+    try {
+      const { amount, donationId } = req.body;
+      
+      if (!amount || !donationId) {
+        return res.status(400).json({ message: "Amount and donationId are required" });
+      }
+      
+      // Get the donation to validate it exists
+      const donation = await storage.getDonation(donationId);
+      if (!donation) {
+        return res.status(404).json({ message: "Donation not found" });
+      }
+      
+      // Convert amount to cents for Stripe (e.g., 10.50 -> 1050)
+      const amountInCents = Math.round(parseFloat(amount) * 100);
+      
+      // Create payment intent
+      const paymentIntent = await stripe.paymentIntents.create({
+        amount: amountInCents,
+        currency: "inr", // Using Indian Rupees
+        metadata: {
+          donationId: donationId.toString(),
+          donationType: donation.donationType,
+          purpose: donation.purpose || "General Donation"
+        }
+      });
+      
+      // Return the client secret to the client
+      res.json({ 
+        clientSecret: paymentIntent.client_secret,
+        paymentIntentId: paymentIntent.id
+      });
+    } catch (error) {
+      console.error("Error creating payment intent:", error);
+      res.status(500).json({ message: "Failed to create payment intent" });
+    }
+  });
+  
+  // Webhook endpoint for Stripe events
+  apiRouter.post("/stripe-webhook", express.raw({ type: 'application/json' }), async (req: Request, res: Response) => {
+    const signature = req.headers['stripe-signature'] as string;
+    
+    try {
+      // This endpoint is for future use when you set up the webhook with Stripe
+      // The webhook secret would need to be configured in your environment variables
+      // const event = stripe.webhooks.constructEvent(req.body, signature, process.env.STRIPE_WEBHOOK_SECRET);
+      
+      // Instead, we'll manually process the event type
+      const payload = req.body;
+      const event = JSON.parse(payload.toString());
+      
+      if (event.type === 'payment_intent.succeeded') {
+        const paymentIntent = event.data.object;
+        const donationId = parseInt(paymentIntent.metadata.donationId);
+        
+        // Update donation status to completed
+        await storage.updateDonationStatus(
+          donationId, 
+          'completed', 
+          paymentIntent.id
+        );
+        
+        console.log(`Payment for donation ${donationId} completed successfully`);
+      }
+      
+      res.json({ received: true });
+    } catch (err) {
+      const error = err as Error;
+      console.error('Webhook error:', error);
+      return res.status(400).send(`Webhook Error: ${error.message}`);
+    }
+  });
+
   // Mount the API router
   app.use("/api", apiRouter);
 
