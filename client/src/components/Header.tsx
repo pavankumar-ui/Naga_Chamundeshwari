@@ -42,7 +42,7 @@ const Header = () => {
               </div>
               <div>
                 <h1 className="text-maroon font-cinzel text-2xl font-bold">Naga Chamundeshwari</h1>
-                <p className="text-dark text-sm">Temple & Devasthana</p>
+                <p className="text-dark text-sm">Devasthana</p>
               </div>
             </div>
           </Link>

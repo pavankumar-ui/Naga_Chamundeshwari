@@ -1,13 +1,13 @@
 import { donationOptions } from "@/lib/data";
 import { Link } from "wouter";
-import { Check, CreditCard, Banknote, QrCode } from "lucide-react";
+import { Check, CreditCard, Banknote, QrCode, Coins } from "lucide-react";
 
 const DonationOptions = () => {
   return (
     <div className="bg-white/10 backdrop-blur-sm p-8 rounded-lg">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div>
-          <h3 className="text-xl font-cinzel font-semibold mb-4">Donation Options</h3>
+          <h3 className="text-xl font-cinzel font-semibold mb-4">Donations & E-hundi</h3>
           <ul className="space-y-3">
             {donationOptions.options.map((option, index) => (
               <li key={index} className="flex items-start">
@@ -16,6 +16,15 @@ const DonationOptions = () => {
               </li>
             ))}
           </ul>
+          
+          <div className="mt-6 pt-4 border-t border-white/20">
+            <h4 className="text-lg font-medium mb-3">E-hundi Digital Offerings</h4>
+            <p className="mb-3">Make your offerings directly to the temple's digital hundi from anywhere in the world.</p>
+            <div className="flex items-center mt-2">
+              <Coins className="text-gold mr-2" size={18} />
+              <span>Secure online offering system</span>
+            </div>
+          </div>
         </div>
         
         <div>
@@ -38,12 +47,23 @@ const DonationOptions = () => {
               <span>Cheque/DD</span>
             </div>
           </div>
+          
+          <div className="mt-6 bg-maroon/30 p-4 rounded-md">
+            <h4 className="text-lg font-cinzel mb-2">Temple Account Details</h4>
+            <p className="text-sm mb-1">Account Name: Naga Chamundeshwari Devasthana</p>
+            <p className="text-sm mb-1">Account Number: XXXX XXXX XXXX 4578</p>
+            <p className="text-sm mb-1">IFSC Code: ABCD0001234</p>
+            <p className="text-sm">Branch: JP Nagar, Bangalore</p>
+          </div>
         </div>
       </div>
       
-      <div className="mt-8">
+      <div className="mt-8 flex flex-wrap justify-center gap-4">
         <Link href="/contact">
           <a className="inline-block secondary-btn">Donate Now</a>
+        </Link>
+        <Link href="/contact">
+          <a className="inline-block secondary-btn">E-hundi Offering</a>
         </Link>
       </div>
     </div>

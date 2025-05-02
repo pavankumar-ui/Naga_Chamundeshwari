@@ -1,8 +1,8 @@
 // Temple information data
 export const templeInfo = {
-  name: "Naga Chamundeshwari Temple",
+  name: "Naga Chamundeshwari Devasthana",
   tagline: "A sacred place of worship, peace, and spiritual enlightenment",
-  address: "Naga Chamundeshwari Temple, Temple Street, Mysore, Karnataka - 570001, India",
+  address: "Naga Chamundeshwari Devasthana, Puttenahalli, J.P Nagar 7th Phase, Bangalore - 560076, India",
   phone: "+91 98765 43210",
   alternatePhone: "+91 91234 56789",
   email: "info@nagachamundeshwari.org",

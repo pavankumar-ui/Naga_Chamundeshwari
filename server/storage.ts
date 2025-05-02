@@ -108,31 +108,31 @@ export class MemStorage implements IStorage {
     // Add default events
     const defaultEvents: InsertEvent[] = [
       {
-        name: "Navratri Celebration",
-        description: "Nine-day festival celebrating the divine feminine with special poojas, cultural programs, and devotional music.",
-        date: "20 Oct 2023",
-        time: "5:00 PM - 9:00 PM",
+        name: "Dasara Fest",
+        description: "A grand 10-day celebration honoring the victory of Goddess Chamundeshwari over the demon Mahishasura with special rituals, cultural programs, and processions.",
+        date: "15 Oct 2023",
+        time: "6:00 AM - 9:00 PM",
         imageUrl: "https://images.unsplash.com/photo-1589722707707-87642d3726e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80"
       },
       {
-        name: "Diwali Celebrations",
-        description: "Festival of lights with special prayers, temple illumination, prasadam distribution, and cultural performances.",
-        date: "12 Nov 2023",
-        time: "4:30 PM - 10:00 PM",
-        imageUrl: "https://images.unsplash.com/photo-1501963422762-3d89bd989568?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80"
+        name: "Maha Shivarathri",
+        description: "A sacred night dedicated to Lord Shiva with continuous prayers, special abhishekams, and spiritual activities throughout the night.",
+        date: "8 Mar 2024",
+        time: "6:00 PM - 6:00 AM",
+        imageUrl: "https://images.unsplash.com/photo-1626034926348-f1b90ea1ad36?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80"
       },
       {
-        name: "Annual Temple Chariot Festival",
-        description: "Grand procession of the deity in an ornate chariot through the streets with music, dance, and devotional activities.",
-        date: "5 Dec 2023",
-        time: "7:00 AM - 8:00 PM",
+        name: "Karaga Event",
+        description: "Traditional cultural and religious festival involving processions, rituals and community gatherings to honor the divine feminine energy.",
+        date: "2 Apr 2024",
+        time: "7:00 AM - 10:00 PM",
         imageUrl: "https://images.unsplash.com/photo-1621682372775-533449e550ed?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80"
       },
       {
-        name: "Krishna Janmashtami",
-        description: "Celebration of Lord Krishna's birth with bhajans, dance performances, and special midnight aarti.",
-        date: "15 Aug 2023",
-        time: "6:00 PM - 12:00 AM",
+        name: "Prathyangira Homam Rituals Pooja",
+        description: "Special fire ritual dedicated to Goddess Prathyangira to remove negative energies and obstacles, providing protection and prosperity to devotees.",
+        date: "20 May 2024",
+        time: "9:30 AM - 1:30 PM",
         imageUrl: "https://images.unsplash.com/photo-1626165269981-6a9d2b07e6ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80"
       }
     ];
