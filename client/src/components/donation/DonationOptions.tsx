@@ -59,12 +59,45 @@ const DonationOptions = () => {
       </div>
       
       <div className="mt-8 flex flex-wrap justify-center gap-4">
-        <Link href="/contact">
-          <a className="inline-block secondary-btn">Donate Now</a>
-        </Link>
-        <Link href="/contact">
-          <a className="inline-block secondary-btn">E-hundi Offering</a>
-        </Link>
+        <button
+          onClick={() => {
+            const donationDialog = document.createElement('div');
+            donationDialog.innerHTML = `
+              <div class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+                <div class="bg-white rounded-lg shadow-lg max-w-md w-full max-h-[90vh] overflow-y-auto">
+                  <div class="p-6">
+                    <h2 class="text-2xl font-bold text-maroon mb-4">Make a Donation</h2>
+                    <form id="donation-form">
+                      <!-- Form content will be added via DonationForm component -->
+                    </form>
+                  </div>
+                </div>
+              </div>
+            `;
+            document.body.appendChild(donationDialog);
+            
+            // Close when clicking outside
+            donationDialog.addEventListener('click', (e) => {
+              if (e.target === donationDialog) {
+                document.body.removeChild(donationDialog);
+              }
+            });
+            
+            // Navigate to the donation page instead of using dialog
+            window.location.href = '/donation';
+          }}
+          className="inline-block secondary-btn cursor-pointer"
+        >
+          Donate Now
+        </button>
+        <button
+          onClick={() => {
+            window.location.href = '/donation';
+          }}
+          className="inline-block secondary-btn cursor-pointer"
+        >
+          E-hundi Offering
+        </button>
       </div>
     </div>
   );
