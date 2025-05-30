@@ -224,6 +224,26 @@ export class MemStorage implements IStorage {
         title: "Prathyangira Homam - Evening Ceremony",
         imageUrl: "/attached_assets/Prathyangira_homa3.jpg",
         category: "ritual"
+      },
+      {
+        title: "Festival Decoration - Temple Interior",
+        imageUrl: "/attached_assets/Festival1.jpg",
+        category: "festival"
+      },
+      {
+        title: "Festival Celebration - Illuminated Temple",
+        imageUrl: "/attached_assets/festival2.jpg",
+        category: "festival"
+      },
+      {
+        title: "Deity Worship Ceremony - Community Gathering",
+        imageUrl: "/attached_assets/dieties1.jpg",
+        category: "deity"
+      },
+      {
+        title: "Deity Procession - Street Festival",
+        imageUrl: "/attached_assets/dieties2.jpg",
+        category: "deity"
       }
     ];
     
