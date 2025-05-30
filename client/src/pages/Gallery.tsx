@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { useQuery } from "@tanstack/react-query";
 import GalleryGrid from "@/components/gallery/GalleryGrid";
 import { Button } from "@/components/ui/button";
 import { Helmet } from "react-helmet";
+import { Gallery as GalleryType } from "@shared/schema";
 
 const Gallery = () => {
   const [filter, setFilter] = useState<string>("all");
@@ -18,9 +19,11 @@ const Gallery = () => {
     },
   });
   
-  const filteredItems = filter === "all" 
-    ? galleryItems
-    : galleryItems?.filter(item => item.category === filter);
+  const filteredItems = useMemo(() => {
+    if (!galleryItems) return [];
+    if (filter === "all") return galleryItems;
+    return galleryItems.filter((item: GalleryType) => item.category === filter);
+  }, [galleryItems, filter]);
   
   return (
     <>
