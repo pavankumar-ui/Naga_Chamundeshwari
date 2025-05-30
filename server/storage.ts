@@ -166,44 +166,64 @@ export class MemStorage implements IStorage {
     // Add default gallery items
     const defaultGalleryItems: InsertGallery[] = [
       {
-        title: "Temple Architecture",
-        imageUrl: "https://images.unsplash.com/photo-1531061484401-e9bc0cddb228?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80",
-        category: "architecture"
-      },
-      {
-        title: "Festival Celebration",
-        imageUrl: "https://images.unsplash.com/photo-1584722065669-95453e640ad7?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80",
-        category: "festival"
-      },
-      {
-        title: "Ritual Performance",
-        imageUrl: "https://images.unsplash.com/photo-1562713143-2b41dc90d9fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80",
-        category: "ritual"
-      },
-      {
-        title: "Temple Courtyard",
-        imageUrl: "https://images.unsplash.com/photo-1602302522970-c24fd1d0798c?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80",
-        category: "architecture"
-      },
-      {
-        title: "Deity Decoration",
-        imageUrl: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80",
+        title: "Goddess Chamundeshwari - Main Deity",
+        imageUrl: "@assets/Chamundi_amma1.jpg",
         category: "deity"
       },
       {
-        title: "Temple Lamp",
-        imageUrl: "https://images.unsplash.com/photo-1642982166809-50eed2787904?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80",
+        title: "Goddess Chamundeshwari with Divine Serpent",
+        imageUrl: "@assets/Chamundi_amma2.jpg",
+        category: "deity"
+      },
+      {
+        title: "Goddess Chamundeshwari - Festival Decoration",
+        imageUrl: "@assets/chamundi_amma3.jpg",
+        category: "deity"
+      },
+      {
+        title: "Goddess Chamundeshwari - Evening Darshan",
+        imageUrl: "@assets/chamundi_amma4.jpg",
+        category: "deity"
+      },
+      {
+        title: "Goddess Chamundeshwari - Divine Form",
+        imageUrl: "@assets/chamundi_amma5.jpg",
+        category: "deity"
+      },
+      {
+        title: "Goddess Chamundeshwari - Sacred Shrine",
+        imageUrl: "@assets/Chamundi_amma6.jpg",
+        category: "deity"
+      },
+      {
+        title: "Goddess Chamundeshwari - Adorned with Flowers",
+        imageUrl: "@assets/Chamundi_amma7.jpg",
+        category: "deity"
+      },
+      {
+        title: "Lord Hanuman - Devotional Shrine",
+        imageUrl: "@assets/Hanuman.jpg",
+        category: "deity"
+      },
+      {
+        title: "Banni Pooja Ceremony",
+        imageUrl: "@assets/Banni_pooja1.jpg",
         category: "ritual"
       },
       {
-        title: "Temple Entrance",
-        imageUrl: "https://images.unsplash.com/photo-1620478052604-cd91e7e67a1c?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80",
-        category: "architecture"
+        title: "Prathyangira Homam - Sacred Fire Ritual",
+        imageUrl: "@assets/Prathyangira_homa1.jpg",
+        category: "ritual"
       },
       {
-        title: "Devotional Gathering",
-        imageUrl: "https://images.unsplash.com/photo-1621507492022-88fcab37a467?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80",
-        category: "event"
+        title: "Prathyangira Homam - Community Gathering",
+        imageUrl: "@assets/Prathyangira_homa2.jpg",
+        category: "ritual"
+      },
+      {
+        title: "Prathyangira Homam - Evening Ceremony",
+        imageUrl: "@assets/Prathyangira_homa3.jpg",
+        category: "ritual"
       }
     ];
     
