@@ -9,6 +9,13 @@ const Gallery = () => {
   
   const { data: galleryItems, isLoading } = useQuery({
     queryKey: ["/api/gallery"],
+    queryFn: async () => {
+      const response = await fetch("/api/gallery");
+      if (!response.ok) {
+        throw new Error("Failed to fetch gallery items");
+      }
+      return response.json();
+    },
   });
   
   const filteredItems = filter === "all" 

@@ -167,62 +167,62 @@ export class MemStorage implements IStorage {
     const defaultGalleryItems: InsertGallery[] = [
       {
         title: "Goddess Chamundeshwari - Main Deity",
-        imageUrl: "@assets/Chamundi_amma1.jpg",
+        imageUrl: "/attached_assets/Chamundi_amma1.jpg",
         category: "deity"
       },
       {
         title: "Goddess Chamundeshwari with Divine Serpent",
-        imageUrl: "@assets/Chamundi_amma2.jpg",
+        imageUrl: "/attached_assets/Chamundi_amma2.jpg",
         category: "deity"
       },
       {
         title: "Goddess Chamundeshwari - Festival Decoration",
-        imageUrl: "@assets/chamundi_amma3.jpg",
+        imageUrl: "/attached_assets/chamundi_amma3.jpg",
         category: "deity"
       },
       {
         title: "Goddess Chamundeshwari - Evening Darshan",
-        imageUrl: "@assets/chamundi_amma4.jpg",
+        imageUrl: "/attached_assets/chamundi_amma4.jpg",
         category: "deity"
       },
       {
         title: "Goddess Chamundeshwari - Divine Form",
-        imageUrl: "@assets/chamundi_amma5.jpg",
+        imageUrl: "/attached_assets/chamundi_amma5.jpg",
         category: "deity"
       },
       {
         title: "Goddess Chamundeshwari - Sacred Shrine",
-        imageUrl: "@assets/Chamundi_amma6.jpg",
+        imageUrl: "/attached_assets/Chamundi_amma6.jpg",
         category: "deity"
       },
       {
         title: "Goddess Chamundeshwari - Adorned with Flowers",
-        imageUrl: "@assets/Chamundi_amma7.jpg",
+        imageUrl: "/attached_assets/Chamundi_amma7.jpg",
         category: "deity"
       },
       {
         title: "Lord Hanuman - Devotional Shrine",
-        imageUrl: "@assets/Hanuman.jpg",
+        imageUrl: "/attached_assets/Hanuman.jpg",
         category: "deity"
       },
       {
         title: "Banni Pooja Ceremony",
-        imageUrl: "@assets/Banni_pooja1.jpg",
+        imageUrl: "/attached_assets/Banni_pooja1.jpg",
         category: "ritual"
       },
       {
         title: "Prathyangira Homam - Sacred Fire Ritual",
-        imageUrl: "@assets/Prathyangira_homa1.jpg",
+        imageUrl: "/attached_assets/Prathyangira_homa1.jpg",
         category: "ritual"
       },
       {
         title: "Prathyangira Homam - Community Gathering",
-        imageUrl: "@assets/Prathyangira_homa2.jpg",
+        imageUrl: "/attached_assets/Prathyangira_homa2.jpg",
         category: "ritual"
       },
       {
         title: "Prathyangira Homam - Evening Ceremony",
-        imageUrl: "@assets/Prathyangira_homa3.jpg",
+        imageUrl: "/attached_assets/Prathyangira_homa3.jpg",
         category: "ritual"
       }
     ];
@@ -398,5 +398,5 @@ export class MemStorage implements IStorage {
 // Import DatabaseStorage from separate file to avoid circular dependency
 import { DatabaseStorage } from "./DatabaseStorage";
 
-// Use database storage as default
-export const storage = new DatabaseStorage();
+// Use in-memory storage for now
+export const storage = new MemStorage();

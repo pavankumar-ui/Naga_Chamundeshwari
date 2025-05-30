@@ -17,6 +17,9 @@ if (!process.env.STRIPE_SECRET_KEY) {
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Serve static files from attached_assets directory
+  app.use('/attached_assets', express.static('attached_assets'));
+  
   // API Routes
   const apiRouter = express.Router();
   
