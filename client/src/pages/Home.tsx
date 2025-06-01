@@ -173,18 +173,25 @@ const Home = () => {
       </section>
       
       {/* Donation CTA */}
-      <section className="donation-section py-16 text-white">
-        <div className="container mx-auto px-4">
+      <section 
+        className="relative py-16 text-white bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/attached_assets/Festival1.jpg')`
+        }}
+      >
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-cinzel font-bold mb-3">Support Our Temple</h2>
+            <h2 className="text-3xl md:text-4xl font-cinzel font-bold mb-3 drop-shadow-lg">Support Our Temple</h2>
             <div className="w-24 h-1 bg-gold mx-auto mb-6"></div>
-            <p className="mb-8">
+            <p className="mb-8 drop-shadow-md text-lg">
               Your generous donations help us maintain the temple, conduct regular rituals, organize festivals, 
-              and support charitable activities.
+              and support charitable activities. Join us in preserving our sacred traditions.
             </p>
             
             <Link href="/donation">
-              <a className="inline-block secondary-btn">Donate Now</a>
+              <a className="inline-block bg-gold text-dark px-8 py-3 rounded-md hover:bg-yellow-500 transition duration-300 text-lg font-medium shadow-lg">
+                Donate Now
+              </a>
             </Link>
           </div>
         </div>
