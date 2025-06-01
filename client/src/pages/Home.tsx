@@ -176,7 +176,7 @@ const Home = () => {
       <section 
         className="relative py-16 text-white bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/attached_assets/Festival1.jpg')`
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/attached_assets/festival2.jpg')`
         }}
       >
         <div className="container mx-auto px-4 relative z-10">
