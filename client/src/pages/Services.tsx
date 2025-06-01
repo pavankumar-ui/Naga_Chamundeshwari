@@ -6,6 +6,11 @@ import { Helmet } from "react-helmet";
 const Services = () => {
   const { data: services, isLoading } = useQuery({
     queryKey: ["/api/services"],
+    queryFn: async () => {
+      const response = await fetch("/api/services");
+      if (!response.ok) throw new Error("Failed to fetch services");
+      return response.json();
+    },
   });
   
   // Create skeleton array for loading state

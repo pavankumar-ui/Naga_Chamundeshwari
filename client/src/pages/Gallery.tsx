@@ -78,13 +78,6 @@ const Gallery = () => {
             >
               Deities
             </Button>
-            <Button 
-              variant={filter === "event" ? "default" : "outline"}
-              className={filter === "event" ? "bg-maroon hover:bg-red-800" : ""}
-              onClick={() => setFilter("event")}
-            >
-              Events
-            </Button>
           </div>
           
           <GalleryGrid galleryItems={filteredItems} isLoading={isLoading} />

@@ -12,14 +12,29 @@ import { templeInfo } from "@/lib/data";
 const Home = () => {
   const { data: galleryItems, isLoading: galleryLoading } = useQuery({
     queryKey: ["/api/gallery"],
+    queryFn: async () => {
+      const response = await fetch("/api/gallery");
+      if (!response.ok) throw new Error("Failed to fetch gallery");
+      return response.json();
+    },
   });
 
   const { data: services, isLoading: servicesLoading } = useQuery({
     queryKey: ["/api/services"],
+    queryFn: async () => {
+      const response = await fetch("/api/services");
+      if (!response.ok) throw new Error("Failed to fetch services");
+      return response.json();
+    },
   });
 
   const { data: events, isLoading: eventsLoading } = useQuery({
     queryKey: ["/api/events"],
+    queryFn: async () => {
+      const response = await fetch("/api/events");
+      if (!response.ok) throw new Error("Failed to fetch events");
+      return response.json();
+    },
   });
 
   return (
