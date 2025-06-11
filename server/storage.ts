@@ -108,22 +108,10 @@ export class MemStorage implements IStorage {
         imageUrl: "https://images.unsplash.com/photo-1616058581804-1586116c8293?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80"
       },
       {
-        name: "Sahasranama Archana",
-        description: "Worship by reciting the 1008 divine names of the deity with flowers and other offerings.",
-        price: "₹351 onwards",
-        imageUrl: "https://images.unsplash.com/photo-1609177988552-0b04ad4423e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80"
-      },
-      {
         name: "E-Hundi Donation",
         description: "Make offerings to the temple electronically, similar to the traditional hundi donation system but through online means.",
         price: "Any amount",
         imageUrl: "https://images.unsplash.com/photo-1642982166809-50eed2787904?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80"
-      },
-      {
-        name: "Shraddha Ceremony",
-        description: "Ancestral rituals performed to pay homage to departed souls and seek their blessings.",
-        price: "₹751 onwards",
-        imageUrl: "https://images.unsplash.com/photo-1589307357824-52c3a3d14098?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80"
       }
     ];
     
