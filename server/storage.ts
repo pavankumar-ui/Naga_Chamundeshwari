@@ -93,25 +93,25 @@ export class MemStorage implements IStorage {
         name: "Daily Pooja",
         description: "Regular worship rituals performed for the deity including abhishekam, alankaram, and naivedyam.",
         price: "₹251 onwards",
-        imageUrl: "https://images.unsplash.com/photo-1623940580041-5e54cc9182a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80"
+        imageUrl: "/attached_assets/Chamundi_amma1.jpg"
       },
       {
         name: "Special Abhishekam",
         description: "Sacred bathing ritual of the deity with milk, curd, honey, ghee, and other auspicious substances.",
         price: "₹501 onwards",
-        imageUrl: "https://images.unsplash.com/photo-1609833940049-7856efc8d6dd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80"
+        imageUrl: "/attached_assets/chamundi_amma3.jpg"
       },
       {
         name: "Homam/Yagya",
         description: "Sacred fire ritual performed by learned priests to invoke divine blessings for specific purposes.",
         price: "₹1,100 onwards",
-        imageUrl: "https://images.unsplash.com/photo-1616058581804-1586116c8293?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80"
+        imageUrl: "/attached_assets/Prathyangira_homa1.jpg"
       },
       {
         name: "E-Hundi Donation",
         description: "Make offerings to the temple electronically, similar to the traditional hundi donation system but through online means.",
         price: "Any amount",
-        imageUrl: "https://images.unsplash.com/photo-1642982166809-50eed2787904?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80"
+        imageUrl: "/attached_assets/Chamundi_amma2.jpg"
       }
     ];
     
