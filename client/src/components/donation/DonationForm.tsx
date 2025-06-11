@@ -43,6 +43,8 @@ type DonationFormValues = z.infer<typeof donationFormSchema>;
 interface DonationFormProps {
   eventId?: number;
   eventName?: string;
+  serviceId?: number;
+  serviceName?: string;
   donationType?: "general" | "pooja" | "event" | "ehundi" | "other";
   defaultPurpose?: string;
 }
@@ -50,6 +52,8 @@ interface DonationFormProps {
 export function DonationForm({
   eventId,
   eventName,
+  serviceId,
+  serviceName,
   donationType = "general",
   defaultPurpose = "",
 }: DonationFormProps) {
@@ -77,7 +81,13 @@ export function DonationForm({
 
   async function onSubmit(data: DonationFormValues) {
     try {
-      const response = await apiRequest("POST", "/api/donations", data);
+      const donationPayload = {
+        ...data,
+        eventId: eventId || null,
+        serviceId: serviceId || null,
+      };
+      
+      const response = await apiRequest("POST", "/api/donations", donationPayload);
       const donation = await response.json();
       
       setDonationData(donation);

@@ -2,8 +2,15 @@ import { useQuery } from "@tanstack/react-query";
 import ServiceCard from "@/components/services/ServiceCard";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Helmet } from "react-helmet";
+import { useState } from "react";
+import { Service } from "@shared/schema";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { DonationForm } from "@/components/donation/DonationForm";
 
 const Services = () => {
+  const [selectedService, setSelectedService] = useState<Service | null>(null);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
   const { data: services, isLoading } = useQuery({
     queryKey: ["/api/services"],
     queryFn: async () => {
@@ -12,6 +19,11 @@ const Services = () => {
       return response.json();
     },
   });
+
+  const handleBookService = (service: Service) => {
+    setSelectedService(service);
+    setIsDialogOpen(true);
+  };
   
   // Create skeleton array for loading state
   const skeletonServices = Array(6).fill(0);
@@ -51,7 +63,7 @@ const Services = () => {
               ))
             ) : (
               services?.map((service) => (
-                <ServiceCard key={service.id} service={service} />
+                <ServiceCard key={service.id} service={service} onBookService={handleBookService} />
               ))
             )}
           </div>
@@ -103,6 +115,29 @@ const Services = () => {
           </div>
         </div>
       </section>
+      
+      {/* Service Booking Dialog */}
+      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+        <DialogContent className="sm:max-w-[550px] max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="text-xl font-cinzel text-maroon">
+              Book {selectedService?.name}
+            </DialogTitle>
+            <DialogDescription>
+              Fill out the form below to book this temple service. Payment will be processed securely.
+            </DialogDescription>
+          </DialogHeader>
+          
+          {selectedService && (
+            <DonationForm
+              donationType="pooja"
+              defaultPurpose={selectedService.name}
+              serviceId={selectedService.id}
+              serviceName={selectedService.name}
+            />
+          )}
+        </DialogContent>
+      </Dialog>
     </>
   );
 };

@@ -1,12 +1,13 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Service } from "@shared/schema";
-import { Link } from "wouter";
+import { Button } from "@/components/ui/button";
 
 interface ServiceCardProps {
   service: Service;
+  onBookService: (service: Service) => void;
 }
 
-const ServiceCard = ({ service }: ServiceCardProps) => {
+const ServiceCard = ({ service, onBookService }: ServiceCardProps) => {
   return (
     <Card className="bg-white rounded-lg shadow-md overflow-hidden h-full flex flex-col">
       <div className="h-48 overflow-hidden">
@@ -21,9 +22,13 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
         <p className="text-dark mb-4 flex-grow">{service.description}</p>
         <div className="flex justify-between items-center">
           <span className="text-gold font-semibold">{service.price}</span>
-          <Link href={`/services/${service.id}`}>
-            <a className="text-maroon hover:text-red-800 font-medium">Book Now →</a>
-          </Link>
+          <Button 
+            onClick={() => onBookService(service)}
+            variant="outline"
+            className="text-maroon border-maroon hover:bg-maroon hover:text-white"
+          >
+            Book Now →
+          </Button>
         </div>
       </CardContent>
     </Card>
