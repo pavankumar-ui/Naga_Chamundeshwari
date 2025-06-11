@@ -8,6 +8,7 @@ const TempleTimings = () => {
           <div className="mb-4 md:mb-0">
             <h2 className="text-2xl font-cinzel font-semibold">Temple Timings</h2>
             <p>Open Daily: {templeInfo.timings.daily}</p>
+            <p>Friday: {templeInfo.timings.friday}</p>
           </div>
           <div className="flex flex-col sm:flex-row gap-6">
             <div>

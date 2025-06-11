@@ -8,7 +8,8 @@ export const templeInfo = {
   email: "info@nagachamundeshwari.org",
   alternateEmail: "contact@nagachamundeshwari.org",
   timings: {
-    daily: "6:00 AM - 8:30 PM",
+    daily: "Morning: 6:30 AM - 10:30 AM, Evening: 6:00 PM - 8:30 PM",
+    friday: "6:30 AM - 1:00 PM",
     morningAarti: "7:00 AM - 8:00 AM",
     specialPooja: "10:30 AM - 11:30 AM",
     eveningAarti: "6:30 PM - 7:30 PM",
