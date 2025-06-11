@@ -233,10 +233,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const paymentIntent = await stripe.paymentIntents.create({
         amount: amountInCents,
         currency: "inr", // Using Indian Rupees
+        description: `Temple Donation - ${donation.purpose || "General Donation"} by ${donation.name}`,
         metadata: {
           donationId: donationId.toString(),
           donationType: donation.donationType,
-          purpose: donation.purpose || "General Donation"
+          purpose: donation.purpose || "General Donation",
+          donorName: donation.name,
+          donorEmail: donation.email
         }
       });
       
