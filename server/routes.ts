@@ -234,6 +234,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
         amount: amountInCents,
         currency: "inr", // Using Indian Rupees
         description: `Temple Donation - ${donation.purpose || "General Donation"} by ${donation.name}`,
+        shipping: {
+          name: donation.name,
+          address: {
+            line1: "Temple Address",
+            city: "Bangalore",
+            state: "Karnataka",
+            postal_code: "560078",
+            country: "IN"
+          }
+        },
         metadata: {
           donationId: donationId.toString(),
           donationType: donation.donationType,

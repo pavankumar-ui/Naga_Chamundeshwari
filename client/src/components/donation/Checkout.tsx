@@ -88,7 +88,25 @@ const CheckoutForm = ({ clientSecret, donationId, onSuccess }: CheckoutFormProps
       </div>
       
       <form onSubmit={handleSubmit} className="space-y-6">
-        <PaymentElement />
+        <PaymentElement 
+          options={{
+            fields: {
+              billingDetails: {
+                name: 'auto',
+                email: 'auto',
+                phone: 'auto',
+                address: {
+                  country: 'auto',
+                  line1: 'auto',
+                  line2: 'auto',
+                  city: 'auto',
+                  state: 'auto',
+                  postalCode: 'auto'
+                }
+              }
+            }
+          }}
+        />
         <Button 
           type="submit" 
           disabled={!stripe || isProcessing} 
