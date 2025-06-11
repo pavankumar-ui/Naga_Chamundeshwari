@@ -77,23 +77,34 @@ const CheckoutForm = ({ clientSecret, donationId, onSuccess }: CheckoutFormProps
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
-      <PaymentElement />
-      <Button 
-        type="submit" 
-        disabled={!stripe || isProcessing} 
-        className="w-full"
-      >
-        {isProcessing ? (
-          <>
-            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-            Processing...
-          </>
-        ) : (
-          "Complete Donation"
-        )}
-      </Button>
-    </form>
+    <div className="space-y-6">
+      {/* Test Card Information */}
+      <div className="p-3 bg-blue-50 border border-blue-200 rounded-md">
+        <h4 className="font-medium text-blue-800 mb-2">Test Card Details</h4>
+        <div className="text-sm text-blue-700">
+          <p><strong>Card:</strong> 4242 4242 4242 4242</p>
+          <p><strong>Expiry:</strong> 12/25 | <strong>CVC:</strong> 123</p>
+        </div>
+      </div>
+      
+      <form onSubmit={handleSubmit} className="space-y-6">
+        <PaymentElement />
+        <Button 
+          type="submit" 
+          disabled={!stripe || isProcessing} 
+          className="w-full"
+        >
+          {isProcessing ? (
+            <>
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              Processing...
+            </>
+          ) : (
+            "Complete Donation"
+          )}
+        </Button>
+      </form>
+    </div>
   );
 };
 

@@ -41,6 +41,24 @@ const Donation = () => {
             
             <DonationOptions />
             
+            {/* Test Payment Information */}
+            <div className="mt-8 p-4 bg-blue-900/20 border border-blue-300 rounded-lg">
+              <h3 className="text-lg font-semibold mb-2 text-yellow-300">Test Payment Information</h3>
+              <p className="text-sm mb-3">This is a test environment. Use these test card details:</p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <strong>Card Number:</strong> 4242 4242 4242 4242<br/>
+                  <strong>Expiry:</strong> Any future date (e.g., 12/25)<br/>
+                  <strong>CVC:</strong> Any 3 digits (e.g., 123)
+                </div>
+                <div>
+                  <strong>Name:</strong> Any name<br/>
+                  <strong>Postal Code:</strong> Any valid code<br/>
+                  <strong>Country:</strong> India
+                </div>
+              </div>
+            </div>
+            
             <p className="mt-6 text-sm">{donationOptions.taxExemption}</p>
           </div>
         </div>
