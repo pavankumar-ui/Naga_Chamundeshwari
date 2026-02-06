@@ -131,7 +131,7 @@ export class MemStorage implements IStorage {
         description: "A sacred 3-day celebration dedicated to Lord Shiva with continuous prayers, special abhishekams, and spiritual activities throughout the night. This is one of our most significant festivals where devotee donations support the grand arrangements and receive spiritual merit.",
         date: "Mar 7 - Mar 9, 2025",
         time: "6:00 PM - 6:00 AM",
-        imageUrl: "https://images.unsplash.com/photo-1626034926348-f1b90ea1ad36?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80"
+        imageUrl: "/attached_assets/Shivarathri_utsava1.jpg"
       },
       {
         name: "Naga Chamundeshwari Birthday Celebration",
