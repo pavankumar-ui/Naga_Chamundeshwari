@@ -10,13 +10,13 @@ interface EventCardProps {
 const EventCard = ({ event }: EventCardProps) => {
   return (
     <Card className="bg-light rounded-lg shadow-md overflow-hidden border border-gray-200 h-full flex flex-col">
-      <div className="relative">
+      <div className="relative overflow-hidden h-96 flex items-center justify-center bg-black">
         <img 
           src={event.imageUrl} 
           alt={event.name} 
-          className="w-full h-48 object-cover"
+          className="h-[120%] w-auto max-w-none object-contain rotate-90"
         />
-        <div className="absolute top-4 left-4 bg-maroon text-white py-1 px-3 rounded-md">
+        <div className="absolute top-4 left-4 bg-maroon text-white py-1 px-3 rounded-md z-10">
           <span className="text-sm font-medium">{event.date}</span>
         </div>
       </div>
