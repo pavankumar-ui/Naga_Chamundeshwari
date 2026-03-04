@@ -8,6 +8,7 @@ import { Landmark, Scale, Lightbulb } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { Skeleton } from "@/components/ui/skeleton";
 import { templeInfo } from "@/lib/data";
+import nagaHistoryImg from "@assets/NagaHistory_1772604544742.jpeg";
 
 const Home = () => {
   const { data: galleryItems, isLoading: galleryLoading } = useQuery({
@@ -71,7 +72,7 @@ const Home = () => {
             </div>
             <div className="order-1 md:order-2">
               <img 
-                src={templeInfo.aboutImage} 
+                src={nagaHistoryImg} 
                 alt="Temple Historical Image" 
                 className="w-full h-auto rounded-lg shadow-xl"
               />
