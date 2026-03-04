@@ -1,6 +1,9 @@
 import { Landmark, BookOpen, HandHelping } from "lucide-react";
 import { aboutInfo } from "@/lib/data";
 import { Helmet } from "react-helmet";
+import nagaHistoryImg from "@assets/NagaHistory_1772604544742.jpeg";
+import nagaFounderImg from "@assets/NagaFounder_1772605121075.jpeg";
+import nagaStaffImg from "@assets/WhatsApp_Image_2026-03-03_at_9.23.26_AM_(1)_1772605139373.jpeg";
 
 const About = () => {
   return (
@@ -30,7 +33,7 @@ const About = () => {
             </div>
             <div>
               <img 
-                src="https://images.unsplash.com/photo-1618546420826-f1310de4e9fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80" 
+                src={nagaHistoryImg} 
                 alt="Temple Historical Image" 
                 className="w-full h-auto rounded-lg shadow-xl"
               />
@@ -70,10 +73,15 @@ const About = () => {
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-              <div>
+              <div className="space-y-6">
                 <img 
-                  src="https://images.unsplash.com/photo-1531061484401-e9bc0cddb228?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80" 
-                  alt="Devasthana Architecture" 
+                  src={nagaFounderImg} 
+                  alt="Temple Founder" 
+                  className="w-full h-auto rounded-lg shadow-xl"
+                />
+                <img 
+                  src={nagaStaffImg} 
+                  alt="Sacred Staff" 
                   className="w-full h-auto rounded-lg shadow-xl"
                 />
               </div>
