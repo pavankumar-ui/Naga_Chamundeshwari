@@ -214,6 +214,36 @@ export class MemStorage implements IStorage {
         category: "ritual"
       },
       {
+        title: "Navasakti Karaga Procession",
+        imageUrl: "/attached_assets/WhatsApp_Image_2026-03-03_at_9.54.18_AM_(1)_1773728529243.jpeg",
+        category: "ritual"
+      },
+      {
+        title: "Karaga Mahotsava Procession",
+        imageUrl: "/attached_assets/WhatsApp_Image_2026-03-03_at_9.54.18_AM_(2)_1773728529245.jpeg",
+        category: "ritual"
+      },
+      {
+        title: "Karaga Festival Ceremony",
+        imageUrl: "/attached_assets/WhatsApp_Image_2026-03-03_at_9.54.18_AM_1773728529246.jpeg",
+        category: "ritual"
+      },
+      {
+        title: "Divine Goddess Procession",
+        imageUrl: "/attached_assets/WhatsApp_Image_2026-03-03_at_10.07.40_AM_(1)_1773728551252.jpeg",
+        category: "ritual"
+      },
+      {
+        title: "Pallaki Festival Celebration",
+        imageUrl: "/attached_assets/WhatsApp_Image_2026-03-03_at_10.07.40_AM_(2)_1773728551254.jpeg",
+        category: "ritual"
+      },
+      {
+        title: "Temple Street Procession",
+        imageUrl: "/attached_assets/WhatsApp_Image_2026-03-03_at_10.07.40_AM_1773728551255.jpeg",
+        category: "ritual"
+      },
+      {
         title: "Festival Decoration - Temple Interior",
         imageUrl: "/attached_assets/Festival1.jpg",
         category: "festival"
