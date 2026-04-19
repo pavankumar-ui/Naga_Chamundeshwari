@@ -77,12 +77,14 @@ const About = () => {
                 <img 
                   src={nagaFounderImg} 
                   alt="Temple Founder" 
-                  className="w-full h-auto rounded-lg shadow-xl"
+                  className="w-full rounded-lg shadow-xl"
+                  style={{ height: "600px", objectFit: "cover" }}
                 />
                 <img 
                   src={nagaStaffImg} 
                   alt="Sacred Staff" 
-                  className="w-full h-auto rounded-lg shadow-xl"
+                  className="w-full rounded-lg shadow-xl"
+                  style={{ height: "600px", objectFit: "cover" }}
                 />
               </div>
               <div>
