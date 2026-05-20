@@ -76,7 +76,9 @@ const Contact = () => {
                       </svg>
                     </a>
                     <a 
-                      href="#" 
+                      href="https://www.instagram.com/sri_sakthi_naga_kshetra_medica/"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="w-10 h-10 bg-maroon text-white rounded-full flex items-center justify-center hover:bg-red-800 transition duration-300"
                       aria-label="Instagram"
                     >
@@ -123,7 +125,7 @@ const Contact = () => {
               <h3 className="text-xl font-cinzel font-semibold text-maroon mb-4 text-center">Temple Location</h3>
               <div className="w-full h-80 rounded-md overflow-hidden">
                 <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.018713996873!2d77.5702943!3d12.9053095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15416a33831d%3A0xaca23e80f7eca0db!2sJ.%20P.%20Nagar%207th%20Phase%2C%20J.%20P.%20Nagar%2C%20Bengaluru%2C%20Karnataka%20560078!5e0!3m2!1sen!2sin!4v1683190543612!5m2!1sen!2sin" 
+                  src="https://maps.google.com/maps?q=Naga+Chamundeshwari+Devasthana,+Puttenahalli,+JP+Nagar+7th+Phase,+Bangalore+560076,+India&output=embed" 
                   width="100%" 
                   height="100%" 
                   style={{ border: 0 }} 
