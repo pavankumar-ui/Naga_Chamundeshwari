@@ -45,7 +45,7 @@ const Events = () => {
     {
       id: 2,
       title: "Maha Shivarathri",
-      duration: "3 Days",
+      duration: "Feb 7 - Feb 16 , 2026",
       time: "Round-the-clock ceremonies with night vigil",
       description: "A sacred celebration dedicated to Lord Shiva with continuous prayers, special abhishekams, and spiritual activities throughout three consecutive days and nights.",
       donationInfo: "Offerings made during this festival carry special spiritual significance and support the elaborate arrangements for this major event."
@@ -105,12 +105,19 @@ const Events = () => {
                     </div>
                   </div>
                   
-                  <Button 
-                    className="w-full bg-maroon hover:bg-maroon/80"
-                    onClick={() => handleDonationClick(event.title)}
-                  >
-                    Make an Offering
-                  </Button>
+                  <div className="flex gap-3">
+                    <Button 
+                      className="flex-1 bg-maroon hover:bg-maroon/80"
+                      onClick={() => handleDonationClick(event.title)}
+                    >
+                      Make an Offering
+                    </Button>
+                    <Link href={`/events/${event.id}`} className="flex-1">
+                      <Button variant="outline" className="w-full border-maroon text-maroon hover:bg-maroon/5">
+                        Details
+                      </Button>
+                    </Link>
+                  </div>
                 </div>
               </div>
             ))}
