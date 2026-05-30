@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
+import templeLogo from "@assets/temple_logo.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -35,7 +36,7 @@ const Header = () => {
             <div className="flex items-center cursor-pointer">
               <div className="w-16 h-16">
                 <img 
-                  src="https://images.unsplash.com/photo-1621507492022-88fcab37a467?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
+                  src={templeLogo}
                   alt="Temple Logo" 
                   className="w-full h-full object-contain rounded-full"
                 />
