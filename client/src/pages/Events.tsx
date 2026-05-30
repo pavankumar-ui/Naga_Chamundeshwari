@@ -23,6 +23,7 @@ const Events = () => {
       if (!response.ok) throw new Error("Failed to fetch events");
       return response.json();
     },
+    staleTime: 0,
   });
   
   // Create skeleton array for loading state
