@@ -188,6 +188,15 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Disclaimer */}
+      <section className="bg-amber-50 border-y border-amber-200 py-4">
+        <div className="container mx-auto px-4">
+          <p className="text-center text-sm text-amber-800">
+            <span className="font-semibold">Disclaimer:</span> This website is maintained by Naga Chamundeshwari Temple for informational and devotional purposes only. Insta influencers are strictly prohibited, if found making video and place hype, strict action will be taken against them.
+          </p>
+        </div>
+      </section>
+
       {/* Donation CTA */}
       <section
         className="relative py-16 text-white bg-cover bg-center bg-no-repeat"
